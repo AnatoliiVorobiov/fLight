@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserGraphQl {
+  _id: ID!
+  companyName: String
+  email: String!
+  firstName: String
+  lastName: String
+  patronym: String
+  password: String!
+  phoneNumber: String
+  role: String!
+}
+
+type Query {
+  getUsers(params: UserPaginationInput!): [UserGraphQl!]!
+}
+
+input UserPaginationInput {
+  limit: Float = 100
+  skip: Float = 0
+  order: String = "_id"
+  direction: String = "asc"
+  search: String
+}
+
+type Mutation {
+  addUser(user: UserInput!): UserGraphQl!
+  dropUsers(params: DropInput!): Boolean!
+}
+
+input UserInput {
+  email: String!
+  phoneNumber: String!
+  firstName: String!
+  lastName: String!
+  patronym: String!
+  companyName: String!
+  password: String!
+  role: String!
+}
+
+input DropInput {
+  ids: [String!]!
+}
